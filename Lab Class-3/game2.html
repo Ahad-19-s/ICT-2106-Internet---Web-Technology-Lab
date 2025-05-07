@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brick Breaker Game with Restart & Rewards</title>
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      color: #fff;
+      font-family: Arial;
+      text-align: center;
+    }
+    canvas {
+      background: #000;
+      display: block;
+      margin: 20px auto;
+      border: 5px solid #fff;
+    }
+    #info {
+      font-size: 18px;
+      margin-top: -10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎮 Brick Breaker 🎮</h1>
+<canvas id="gameCanvas" width="800" height="500"></canvas>
+<div id="info">Use ⬅️ ➡️ keys | Press 'R' to Restart</div>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Variables
+  let paddle, ball, bricks, score, gameOver, gameWin;
+
+  const brickRowCount = 5;
+  const brickColumnCount = 8;
+  const brickWidth = 80;
+  const brickHeight = 20;
+  const brickPadding = 10;
+  const brickOffsetTop = 50;
+  const brickOffsetLeft = 35;
+
+  function initGame() {
+    paddle = { width: 120, height: 15, x: canvas.width / 2 - 60, y: canvas.height - 30, speed: 6, dx: 0 };
+    ball = { x: canvas.width / 2, y: canvas.height - 50, radius: 10, speed: 4, dx: 4, dy: -4 };
+    score = 0;
+    gameOver = false;
+    gameWin = false;
+
+    bricks = [];
+    for (let c = 0; c < brickColumnCount; c++) {
+      bricks[c] = [];
+      for (let r = 0; r < brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0, status: 1 };
+      }
+    }
+  }
+
+  function drawPaddle() {
+    ctx.fillStyle = "#00f";
+    ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+  }
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#fff";
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function drawBricks() {
+    for (let c = 0; c < brickColumnCount; c++) {
+      for (let r = 0; r < brickRowCount; r++) {
+        if (bricks[c][r].status === 1) {
+          const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+          const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+          bricks[c][r].x = brickX;
+          bricks[c][r].y = brickY;
+          ctx.fillStyle = "#ff5722";
+          ctx.fillRect(brickX, brickY, brickWidth, brickHeight);
+        }
+      }
+    }
+  }
+
+  function drawScore() {
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "#fff";
+    ctx.fillText(`Score: ${score}`, 20, 30);
+  }
+
+  function movePaddle() {
+    paddle.x += paddle.dx;
+    if (paddle.x < 0) paddle.x = 0;
+    if (paddle.x + paddle.width > canvas.width) paddle.x = canvas.width - paddle.width;
+  }
+
+  function moveBall() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    // Wall collision
+    if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx = -ball.dx;
+    if (ball.y - ball.radius < 0) ball.dy = -ball.dy;
+
+    // Paddle collision
+    if (ball.x > paddle.x && ball.x < paddle.x + paddle.width && ball.y + ball.radius > paddle.y) {
+      ball.dy = -ball.dy;
+    }
+
+    // Bottom collision
+    if (ball.y + ball.radius > canvas.height) {
+      gameOver = true;
+    }
+  }
+
+  function collisionDetection() {
+    for (let c = 0; c < brickColumnCount; c++) {
+      for (let r = 0; r < brickRowCount; r++) {
+        const b = bricks[c][r];
+        if (b.status === 1) {
+          if (ball.x > b.x && ball.x < b.x + brickWidth &&
+              ball.y > b.y && ball.y < b.y + brickHeight) {
+            ball.dy = -ball.dy;
+            b.status = 0;
+            score += 10;
+            if (score === brickRowCount * brickColumnCount * 10) {
+              gameWin = true;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function drawGameOver() {
+    ctx.font = "40px Arial";
+    ctx.fillStyle = "#ff3333";
+    ctx.fillText("Game Over! Press 'R' to Restart", canvas.width / 2 - 260, canvas.height / 2);
+  }
+
+  function drawGameWin() {
+    ctx.font = "40px Arial";
+    ctx.fillStyle = "#00ff00";
+    ctx.fillText("🎉 You Win! Reward Unlocked 🎉", canvas.width / 2 - 280, canvas.height / 2);
+    ctx.font = "30px Arial";
+    ctx.fillText("🏆 Reward: You earned a Golden Trophy!", canvas.width / 2 - 260, canvas.height / 2 + 50);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawPaddle();
+    drawBall();
+    drawScore();
+
+    if (gameOver) {
+      drawGameOver();
+      return;
+    }
+
+    if (gameWin) {
+      drawGameWin();
+      return;
+    }
+
+    movePaddle();
+    moveBall();
+    collisionDetection();
+    requestAnimationFrame(draw);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") paddle.dx = paddle.speed;
+    if (e.key === "ArrowLeft") paddle.dx = -paddle.speed;
+    if (e.key === "r" || e.key === "R") initGame();  // Restart on 'R'
+  });
+
+  document.addEventListener("keyup", (e) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") paddle.dx = 0;
+  });
+
+  // Start game
+  initGame();
+  draw();
+</script>
+
+</body>
+</html>

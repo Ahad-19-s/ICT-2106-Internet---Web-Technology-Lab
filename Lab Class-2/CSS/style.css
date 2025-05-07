@@ -1,0 +1,43 @@
+body{
+    background-color: aquamarine;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: justify;
+}
+p{
+    background-color: rgb(3, 4, 32);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: aqua;
+   }
+   a:link {
+    color: green;
+    background-color: blue;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  img{
+
+     display: block;
+    margin: auto; 
+    /* float: right; */
+  }
+  body{
+    background-image: url(/Lab\ Class-2/Images/pcimage.jpg );
+  }

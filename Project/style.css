@@ -1,0 +1,172 @@
+
+body {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  background-color: #0e0e0e;
+  color: #e0e0e0; 
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #121212;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.logo span {
+  color: #00ff99;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00ff99;
+}
+
+.hire {
+  background: #00ff99;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 3rem;
+  gap: 2rem;
+  height: 100vh;
+  background-image: url('/Project/image/pexels-markus-winkler-1430818-18512790.jpg'); /* background image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: -1;
+}
+
+.hero-text, .hero-img {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.hero-text span {
+  color: #00ff99;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: 2px solid #00ff99;
+  color: #00ff99;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #00ff99;
+  color: #000;
+}
+
+.socials a img {
+  width: 24px;
+  margin-right: 10px;
+  margin-top: 20px;
+  filter: invert(1);
+  transition: transform 0.3s ease;
+}
+
+.socials a:hover img {
+  transform: scale(1.1);
+}
+
+.hero-img img {
+  width: 250px;
+  border-radius: 50%;
+}
+
+.circle-border {
+  border: 4px dashed #00ff99;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+  background-color: #161616;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-box h2 {
+  font-size: 2rem;
+  color: #00ff99;
+}
+
+.stat-box p {
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #121212;
+  font-size: 14px;
+  color: #aaaaaa;
+}

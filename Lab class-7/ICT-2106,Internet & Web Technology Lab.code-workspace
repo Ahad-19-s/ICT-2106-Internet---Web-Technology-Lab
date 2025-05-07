@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true,
+		"java.project.sourcePaths": [
+			"OOPS",
+			"Leetcode problem - Copy",
+			"JAVA swing tutorials",
+			"JAVA Basic",
+			""
+		],
+		"liveServer.settings.multiRootWorkspaceName": "HTML"
+	}
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Bangladesh - 8 Divisions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+    }
+    .carousel img {
+      height: 450px;
+      object-fit: cover;
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .navbar {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .accordion-button {
+      background-color: #e3f2fd;
+      font-weight: bold;
+    }
+    .card {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Bangladesh</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#divisions">Divisions</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a></li>
+      </ul>
+      <span class="badge bg-warning text-dark">Total Divisions: 8</span>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+
+  <!-- Breadcrumb -->
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+
+  <!-- Alert -->
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Welcome!</strong> Discover the 8 beautiful divisions of Bangladesh.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+
+  <!-- Carousel -->
+  <div id="carouselExample" class="carousel slide mb-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://source.unsplash.com/1600x900/?boat,jamuna" class="d-block w-100" alt="BD 1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://source.unsplash.com/1600x900/?nature,river" class="d-block w-100" alt="BD 2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://source.unsplash.com/1600x900/?village,bangladesh" class="d-block w-100" alt="BD 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Division Cards -->
+  <div class="row g-4 mb-4" id="divisions">
+    <!-- Division Cards will be inserted here -->
+  </div>
+
+  <!-- Accordion -->
+  <div class="accordion mb-4" id="divisionAccordion"></div>
+
+  <!-- Collapse Section -->
+  <p>
+    <a class="btn btn-outline-info mb-3" data-bs-toggle="collapse" href="#collapseInfo" role="button">Quick Facts</a>
+  </p>
+  <div class="collapse mb-4" id="collapseInfo">
+    <div class="card card-body">
+      Bangladesh is located in South Asia. The capital is Dhaka. It has 8 divisions.
+    </div>
+  </div>
+
+  <!-- Modal Button -->
+  <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#aboutModal">About Bangladesh</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="aboutModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">About Bangladesh</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          Bangladesh is a country in South Asia known for its rivers, greenery, and rich culture.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Explore Bangladesh. All rights reserved.
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const divisions = ['Dhaka', 'Chittagong', 'Khulna', 'Rajshahi', 'Barisal', 'Sylhet', 'Rangpur', 'Mymensingh'];
+  const divisionCards = document.getElementById("divisions");
+  const acc = document.getElementById("divisionAccordion");
+
+  divisions.forEach((division, index) => {
+    divisionCards.innerHTML += `
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://source.unsplash.com/400x200/?${division},bangladesh" class="card-img-top" alt="${division}">
+          <div class="card-body">
+            <h5 class="card-title">${division}</h5>
+            <p class="card-text">Explore the beauty of ${division} Division.</p>
+            <button class="btn btn-success">Visit</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    acc.innerHTML += `
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading${index}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}">
+            ${division} Division
+          </button>
+        </h2>
+        <div id="collapse${index}" class="accordion-collapse collapse" data-bs-parent="#divisionAccordion">
+          <div class="accordion-body">
+            <strong>${division}</strong> is one of the 8 administrative divisions in Bangladesh.
+            <ul class="list-group mt-2">
+              <li class="list-group-item">District 1</li>
+              <li class="list-group-item">District 2</li>
+              <li class="list-group-item">District 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>

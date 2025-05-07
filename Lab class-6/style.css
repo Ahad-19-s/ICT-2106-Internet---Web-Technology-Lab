@@ -1,0 +1,10 @@
+body{
+    background-color: antiquewhite;
+    color: rgb(210, 125, 22);
+}
+.pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
