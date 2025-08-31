@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Semantic Page</title>
+  <style>
+    body {
+     
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header,  section, article, aside, footer {
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+    header, footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+    }
+    nav {
+      background-color: #444;
+      color: white;
+      text-align: left;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    section {
+      background-color: #f4f4f4;
+    }
+    article {
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+    aside {
+      background-color: #e0e0e0;
+    }
+    details {
+      background-color: #ddd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Awesome Website</h1>
+    <p>Welcome to a semantic HTML5 example!</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Blog</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section>
+    <h2>Main Content Section</h2>
+    
+    <article>
+      <h3>Blog Post Title</h3>
+      <p>This is a blog post. It is self-contained and can be reused anywhere independently.</p>
+    </article>
+
+    <article>
+      <h3>Another Blog Post</h3>
+      <p>This is another blog post with meaningful content using the &lt;article&gt; tag.</p>
+    </article>
+  </section>
+
+  <aside>
+    <h3>Sidebar</h3>
+    <p>This is an aside section, maybe for ads or additional tips.</p>
+  </aside>
+
+  <section>
+    <h2>FAQ</h2>
+    <details>
+      <summary>What is semantic HTML?</summary>
+      <p>Semantic HTML means using tags that describe the meaning of the content.</p>
+    </details>
+    <details>
+      <summary>Why use semantic elements?</summary>
+      <p>They improve accessibility, SEO, and make the code more readable.</p>
+    </details>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Website | All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

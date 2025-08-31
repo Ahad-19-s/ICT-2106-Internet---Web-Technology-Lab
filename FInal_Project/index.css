@@ -1,0 +1,99 @@
+/* Tic-Tac-Toe Neon Style CSS */
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+/*  background: url("/FInal_Project/images/tic-tac-toe-game-linear-outline-icon-colour-neon-style-brick-wall-background-light-icon_549897-1770.avif") no-repeat center center fixed;*/
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.cell {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 8px #00ffff, 0 0 16px #ff00ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.6rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s, background 0.3s;
+  border-radius: 8px;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+}
+
+/* X & O neon glow */
+.cell.x {
+  color: #39ff14; /* Neon green */
+  text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+}
+
+.cell.o {
+  color: #ff073a; /* Neon red */
+  text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
+}
+
+/* Winner glow */
+.win {
+  animation: glow 1s ease-in-out infinite alternate;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px #fff; }
+  to { box-shadow: 0 0 25px #fff, 0 0 50px #ff00ff; }
+}
+
+#status {
+  margin: 15px 0;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+button {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+button:hover {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+button:active {
+  transform: scale(0.95);
+}
