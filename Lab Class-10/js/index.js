@@ -1,98 +1,40 @@
+const out = msg => document.getElementById("output").innerHTML += msg + "\n";
 
-var a = 10;
+// Inputs
+let a = +prompt("Enter a number:");
+let b = +prompt("Enter another number:");
+let n = +prompt("How many names?");
+let names = Array.from({length:n},(_,i)=>prompt(`Name ${i+1}:`));
 
-if (a > 5) {
-    console.log("a is greater than 5");
-} else {
-    console.log("a is not greater than 5");
-}
+// Condition check
+out(`Conditional: <span class='red'>${a>10?(a===12?"A=12":"A>10 but not 12"):"A<=10"}</span>`);
 
-document.write(a < 5 ? "a is less than 5<br>" : "a is not less than 5<br>");
+// Functions
+let cube = x => x**3;
+let mul = (x,y) => x*y;
+out(`Square of ${a}: <span class='red'>${a**2}</span>`);
+out(`Cube of ${a}: <span class='red'>${cube(a)}</span>`);
+out(`Area: <span class='red'>${mul(a,b)}</span>`);
 
-document.write(
-    (a > 10)
-        ? ((a == 5) ? "a is greater than 10 and equal to 5<br>" : "a is greater than 10 and not equal to 5<br>")
-        : "a is not greater than 10<br>"
-);
+// IIFE
+(()=>{out(`IIFE Square: <span class='red'>${b**2}</span>\nIIFE Cube: <span class='red'>${cube(b)}</span>`);})();
 
-// 2. User input and comparison
-let b = Number(prompt("Enter a number:"));
+// Arrays
+out(`Names: <span class='blue'>${names}</span>`);
+let arr = names.slice(0,3);
+arr.unshift("AAA"); arr.splice(1,1,"InsertedName"); arr.push("NewName"); arr.pop(); arr.shift();
+out(`Modified: ${arr}`);
 
-if (b > 10) {
-    document.write("b is greater than 10<br>");
-} else if (b == 10) {
-    document.write("b is equal to 10<br>");
-} else {
-    document.write("b is less than 10<br>");
-}
+let arr2D=[[1,'A'],[3,'B'],[4,'C']];
+arr2D.forEach(r=>out(r.join(" ")));
 
-// 3. Function to square a number (with prompt)
-function squarePrompt() {
-    let c = Number(prompt("Enter a number to square:"));
-    document.write("<span style='color:blue'>The square of " + c + " is " + (c * c) + "</span><br>");
-    return c; // return c for later use
-}
+out(`Sorted Strings: ${[32,45,78].sort()}`);
+out(`Sorted Numbers: ${[1230000000,125499999,12000000].sort((x,y)=>x-y)}`);
 
-let c = squarePrompt();
-
-// 4. Function to square a number (with parameter)
-function squareWithParam(num) {
-    document.write("<span style='color:blue'>The square of " + num + " is " + (num * num) + "</span><br>");
-}
-
-squareWithParam(c);
-
-// 5. Function to square a number (with return)
-function squareWithReturn(num) {
-    return num * num;
-}
-
-let result = squareWithReturn(6);
-document.write("<span style='color:blue'>The square of 6 is " + result + "</span><br>");
-
-// 6. Immediately Invoked Function Expression (IIFE)
-(function() {
-    let d = Number(prompt("Enter a number to square using IIFE:"));
-    document.write("<span style='color:blue'>The square of " + d + " is " + (d * d) + "</span><br>");
-})();
-array 
-let arr={
-    name: "John",
-    age: 30,
-    city: "New York"
-}
-
-let arr1 = [1, 2, 3, 4, 5];
-
-document.writeln("<span style='color:blue'>Array elements: " + arr1 + "</span><br>");
-
-//associate array
-
-//push
-arr1.push(6);
-document.writeln("<span style='color:blue'>Array elements after push: " + arr1 + "</span><br>");
-//pop
-arr1.pop();
-document.writeln("<span style='color:blue'>Array elements after pop: " + arr1 + "</span><br>");
-//shift
-arr1.shift();
-document.writeln("<span style='color:blue'>Array elements after shift: " + arr1 + "</span><br>");
-//unshift
-arr1.unshift(0);
-document.writeln("<span style='color:blue'>Array elements after unshift: " + arr1 + "</span><br>");
-//splice
-arr1.splice(2, 0, 2.5);
-document.writeln("<span style='color:blue'>Array elements after splice: " + arr1 + "</span><br>");
-//reverse
-arr1.reverse();
-document.writeln("<span style='color:blue'>Array elements after reverse: " + arr1 + "</span><br>");
-//sort
-arr1.sort((a, b) => a - b);
-document.writeln("<span style='color:blue'>Array elements after sort: " + arr1 + "</span><br>");
-//2d array
-let arr2d = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-];      
-document.writeln("<span style='color:blue'>2D Array elements:</br> " + arr2d.map(row => row.join(", ")).join("<br>") + "</span><br>");
+// Type conversion
+let bNum=+prompt("Enter number:"), cStr=prompt("Enter string:"), vNum=+prompt("Float:");
+out(`bNum: ${typeof bNum}, cStr: ${typeof cStr}, vNum: ${typeof vNum}`);
+out(`Num→Str: ${bNum.toString()} (${typeof bNum.toString()})`);
+out(`Str→Num: ${parseFloat(prompt("Enter numeric string:"))}`);
+out(`Invalid Num: ${Number("ASDDDF")}`);
+out(`Fixed(3): ${vNum.toFixed(3)}, Precision(5): ${vNum.toPrecision(5)}`);

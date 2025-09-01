@@ -1,31 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
-    />
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    body {
+      background: #f8fafc;
+    }
+
+    .card {
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      background: #fff;
+    }
+
+    #paraID {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .btn-custom {
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-weight: 500;
+    }
+
+    .img-box {
+      border: 3px solid #dee2e6;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-    <button class="btn btn-info" onclick="alert('Hello')"> Hello Button</button>
-    <button class="btn btn-danger" onclick="paraClick()">Button1</button>
-    <button class="btn btn-danger" onclick="ImageClick()">ImageButton</button>
-    <br>
-    <br>
-    <p id = "paraId" class="bg-info-subtle" > Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint veniam dolore laborum ipsam itaque sequi autem mollitia aperiam facere. Aspernatur illo beatae molestiae laborum! Commodi quasi reiciendis nesciunt earum.</p>
-    <img id = "imageId" src="" alt="" height="300" width="300">
-</div>
-<script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="js/index.js"></script>
+  <div class="container my-5">
+    <div class="card">
+      <!-- Buttons -->
+      <div class="mb-4 text-center">
+        <button class="btn btn-info btn-custom me-2" onmouseover="buttonClick1()">Hello Button</button>
+        <button class="btn btn-danger btn-custom me-2" onclick="paraClick1()">Hello Button 2</button>
+        <button class="btn btn-dark btn-custom" onclick="imageClick()">Hello Button 3</button>
+      </div>
+
+      <!-- Paragraph -->
+      <p id="paraID" class="text-secondary text-center">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia totam expedita dignissimos voluptatum a aliquam?
+      </p>
+
+      <!-- Image -->
+      <div class="img-box mx-auto mb-4" style="width: 320px;">
+        <img id="imageID" src="/images/photo-1664439126360-4db7ba0605c1.avif" alt="Dynamic Image" class="img-fluid">
+      </div>
+
+      <!-- Slider -->
+      <div class="text-center">
+        <div class="img-box mx-auto mb-3" style="width: 320px;">
+          <img id="slider" src="/images/sundarban.jpg" alt="Slider" class="img-fluid">
+        </div>
+        <button class="btn btn-outline-dark btn-custom me-2" onclick="prev()">⬅ Previous</button>
+        <button class="btn btn-outline-danger btn-custom" onclick="next()">Next ➡</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/Lab Class-12/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -1,0 +1,77 @@
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: aquamarine;
+  background-image: url('Images/pcimage.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+
+header, footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav {
+  background-color: #444;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #666;
+}
+
+section, article, aside {
+  background-color: rgba(255,255,255,0.9);
+  margin: 15px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+p {
+  background-color: #030420;
+  color: aqua;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+a:link {
+  color: green;
+  background-color: blue;
+}
+a:visited {
+  color: pink;
+}
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+}
+
+img {
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+
+details {
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}

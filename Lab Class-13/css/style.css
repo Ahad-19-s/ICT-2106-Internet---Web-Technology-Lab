@@ -1,8 +1,17 @@
-.para-style{
-    color: blue;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: underline;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
+.para-style {
+  color: rgb(115, 0, 255);
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+button {
+  min-width: 120px;
+}
+
+#output-section p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
 }
