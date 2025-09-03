@@ -10,6 +10,8 @@ This repository contains all lab exercises and projects for the ICT-2106 course 
 - ...
 - Lab Class-13
 - images
+- Lab report
+  
 
 ## How to Open / Run
 1. Open the HTML files in your browser.
